@@ -3,6 +3,7 @@
 namespace EasyScss\Shared;
 
 use EasyScss\Admin\EasyScssAdmin;
+use EasyScss\Admin\EasyScssAdminMenu;
 use EasyScss\Public\EasyScssPublic;
 
 class EasyScss {
@@ -73,7 +74,10 @@ class EasyScss {
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 
-	}
+        $plugin_admin_menu = new EasyScssAdminMenu();
+        $this->loader->add_action( 'admin_menu', $plugin_admin_menu, 'init_admin_menu' );
+
+    }
 
 	/**
 	 * Register all the hooks related to the public-facing functionality of the plugin.
