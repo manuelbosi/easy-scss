@@ -1,0 +1,21 @@
+{
+
+    "name": "manuelbosi/easy-scss",
+    "description": "A wordpress plugin helps you edit and compile scss file to plain css from in your wordpress admin panel.",
+    "authors": [
+        {
+            "name": "Manuel Bosi"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "EasyScss\\Admin\\": "admin",
+            "EasyScss\\Public\\": "public",
+            "EasyScss\\Shared\\": "includes",
+            "EasyScss\\Languages\\": "languages"
+        }
+    },
+    "config": {
+        "vendor-dir": "lib"
+    }
+}
