@@ -73,6 +73,8 @@ class EasyScss {
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
+		$this->loader->add_action( 'admin_post_save_options', $plugin_admin, 'handle_save_options' );
+		$this->loader->add_filter('removable_query_args', $plugin_admin, 'add_removable_args');
 
         $plugin_admin_menu = new EasyScssAdminMenu();
         $this->loader->add_action( 'admin_menu', $plugin_admin_menu, 'init_admin_menu' );
