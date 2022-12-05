@@ -52,7 +52,7 @@ class EasyScssAdmin {
 		$entrypoint = $options[EasyScssGlobals::$option_entrypoint_key];
 		$destination = $options[EasyScssGlobals::$option_destination_key];
 
-		$has_empty_values = empty($entrypoint) || strlen(trim($entrypoint)) === 0 || empty($destination) || strlen(trim($destination)) === 0;
+		$has_empty_values = $this->is_parameter_empty($entrypoint) || $this->is_parameter_empty($destination);
 		if ($has_empty_values) {
 			wp_safe_redirect(esc_url_raw(add_query_arg( 'empty_values', true, $redirect_to_url )));
 			return;
@@ -82,6 +82,17 @@ class EasyScssAdmin {
 	public function add_removable_args($args) {
 		$args[] = 'empty_values';
 		return $args;
+	}
+
+	/**
+	 * Check if passed parameter is empty
+	 *
+	 * @param string $parameter_key
+	 *
+	 * @return bool
+	 */
+	private function is_parameter_empty(string $parameter_key): bool {
+		return empty($parameter_key) || strlen(trim($parameter_key)) === 0;
 	}
 
 }
