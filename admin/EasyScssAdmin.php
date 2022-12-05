@@ -52,7 +52,7 @@ class EasyScssAdmin {
 		$entrypoint = $options[EasyScssGlobals::$option_entrypoint_key];
 		$destination = $options[EasyScssGlobals::$option_destination_key];
 
-		$has_empty_values = empty($entrypoint) || empty($destination);
+		$has_empty_values = empty($entrypoint) || strlen(trim($entrypoint)) === 0 || empty($destination) || strlen(trim($destination)) === 0;
 		if ($has_empty_values) {
 			wp_safe_redirect(esc_url_raw(add_query_arg( 'empty_values', true, $redirect_to_url )));
 			return;
