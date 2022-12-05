@@ -15,7 +15,7 @@ $destination_folder_option = $option_manager->get($destination_key);
 
 $has_errors = isset($_GET['error']) && $_GET['error'] === "1";
 $is_saved = isset($_GET['saved']) && $_GET['saved'] === "1";
-$has_empty_values = isset($_GET['empty']) && $_GET['empty'] === "1";
+$has_empty_values = isset($_GET['empty_values']) && $_GET['empty_values'] === "1";
 
 ?>
 
