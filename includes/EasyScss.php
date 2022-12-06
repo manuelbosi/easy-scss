@@ -11,10 +11,10 @@ class EasyScss {
 	/**
 	 * The loader responsible for maintaining and registering all hooks that power the plugin.
 	 */
-	protected $loader;
+	protected EasyScssLoader $loader;
 
-	protected $plugin_name;
-	protected $version;
+	protected string $plugin_name;
+	protected string $version;
 
 	/**
 	 * Define the core functionality of the plugin.
