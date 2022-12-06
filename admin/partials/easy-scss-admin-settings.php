@@ -28,7 +28,7 @@ $has_empty_values = isset($_GET['empty_values']) && $_GET['empty_values'] === "1
     if ($is_saved) {
         $utils->admin_notice('success', 'Settings saved successfully.');
     }
-    if ($has_empty_values) {
+    if ($has_empty_values && !$is_saved) {
         $utils->admin_notice('error', 'All fields must not be empty.');
     }
   ?>
