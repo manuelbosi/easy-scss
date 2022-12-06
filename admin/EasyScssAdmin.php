@@ -8,8 +8,8 @@ use EasyScss\Shared\EasyScssOptionsManager;
 
 class EasyScssAdmin {
 
-	private $plugin_name;
-	private $version;
+	private string $plugin_name;
+	private string $version;
 	private EasyScssOptionsManager $options_manager;
 
 	public function __construct() {
@@ -24,7 +24,7 @@ class EasyScssAdmin {
 	/**
 	 * Register the stylesheets for the admin area.
 	 */
-	public function enqueue_styles() {
+	public function enqueue_styles(): void {
 
 		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/easy-scss-admin.css', array(), $this->version);
 
@@ -33,7 +33,7 @@ class EasyScssAdmin {
 	/**
 	 * Register the JavaScript for the admin area.
 	 */
-	public function enqueue_scripts() {
+	public function enqueue_scripts(): void {
 
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/easy-scss-admin.js', array( 'jquery' ), $this->version);
 
