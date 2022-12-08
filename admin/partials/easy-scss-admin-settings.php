@@ -22,14 +22,12 @@ $has_empty_values = isset($_GET['empty_values']) && $_GET['empty_values'] === "1
 <div class="wrap easy-scss">
 
   <?php
-    if ($has_errors) {
-        $utils->admin_notice('error', 'There was an error while saving settings. Try Again.');
-    }
-    if ($is_saved) {
-        $utils->admin_notice('success', 'Settings saved successfully.');
-    }
-    if ($has_empty_values && !$is_saved) {
-        $utils->admin_notice('error', 'All fields must not be empty.');
+    if ($has_empty_values) {
+	    $utils->admin_notice('error', 'All fields must not be empty.');
+    } else if ($is_saved) {
+	    $utils->admin_notice('success', 'Settings saved successfully.');
+    } else if ($has_errors) {
+      $utils->admin_notice('error', 'There was an error while saving settings. Try Again.');
     }
   ?>
 
