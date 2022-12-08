@@ -42,7 +42,7 @@ class EasyScssAdmin {
 	public function handle_save_options(): void {
 
 		$options = $_POST['options'];
-		$is_token_valid = wp_verify_nonce($_POST['save_options_nonce'], 'save_settings');
+		$is_token_valid = wp_verify_nonce($_POST['save_options_nonce'], 'save_options');
 		$redirect_to_url = $_POST['_wp_http_referer'];
 
 		if (!isset($options) || !$is_token_valid) {
