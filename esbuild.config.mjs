@@ -20,12 +20,10 @@ const cleanBuildFolder = () => {
   
   await esbuild.build({
     entryPoints: {
-      'admin/app.js': './admin/assets/js/app.js',
-      'admin/app.css': './admin/assets/scss/app.scss',
-      'public/app.js': './public/assets/js/app.js',
-      'public/app.css': './public/assets/scss/app.scss'
+      'admin/bundle': './admin/assets/index.js',
+      'public/bundle': './public/assets/index.js',
     },
-    entryNames: '[dir]/app.[hash]',
+    entryNames: '[dir]/[name].[hash]',
     outdir: './dist',
     bundle: true,
     sourcemap: true,
