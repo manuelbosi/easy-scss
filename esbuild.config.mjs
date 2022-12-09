@@ -26,7 +26,7 @@ const cleanBuildFolder = () => {
     entryNames: '[dir]/[name].[hash]',
     outdir: './dist',
     bundle: true,
-    sourcemap: true,
+    sourcemap: false,
     minify: true,
     loader: {
       ".ttf": "dataurl",
@@ -44,7 +44,7 @@ const cleanBuildFolder = () => {
     },
     outdir: './dist/admin',
     bundle: true,
-    sourcemap: true,
+    sourcemap: false,
     minify: true,
     color: true,
   })
