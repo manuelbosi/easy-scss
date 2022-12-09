@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../admin/assets/scss/pages/_settings.scss"],
+  "sourcesContent": [".easy-scss h1,\n.easy-scss h2,\n.easy-scss h3,\n.easy-scss h4 {\n  margin: 0;\n  padding: 0;\n}\n\n.easy-scss .page-title {\n  display: flex;\n  flex-direction: column;\n  margin-bottom: 25px;\n}\n\n.easy-scss label {\n  font-weight: bold;\n  text-transform: uppercase;\n  font-size: 0.875rem;\n  display: block;\n  margin-bottom: 8px;\n}\n\n.easy-scss .form-row {\n  width: 300px;\n  margin-bottom: 20px;\n  display: flex;\n  flex-direction: column;\n}\n\n.easy-scss .form-row:last-of-type {\n  margin-bottom: 25px;\n}\n"],
+  "mappings": "AAAA,2EAQA,uBACE,aACA,sBACA,mBAGF,iBACE,gBACA,yBACA,kBACA,cACA,kBAGF,qBACE,YACA,mBACA,aACA,sBAGF,kCACE",
+  "names": []
+}
