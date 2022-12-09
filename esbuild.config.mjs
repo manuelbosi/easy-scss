@@ -39,10 +39,7 @@ const cleanBuildFolder = () => {
   
   await esbuild.build({
     entryPoints: {
-      'monaco/json.worker': 'node_modules/monaco-editor/esm/vs/language/json/json.worker.js',
       'monaco/css.worker': 'node_modules/monaco-editor/esm/vs/language/css/css.worker.js',
-      'monaco/html.worker': 'node_modules/monaco-editor/esm/vs/language/html/html.worker.js',
-      'monaco/ts.worker': 'node_modules/monaco-editor/esm/vs/language/typescript/ts.worker.js',
       'monaco/editor.worker': 'node_modules/monaco-editor/esm/vs/editor/editor.worker.js',
     },
     outdir: './dist/admin',
