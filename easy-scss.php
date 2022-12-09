@@ -39,6 +39,8 @@ use EasyScss\Shared\EasyScssDeactivator;
  * Rename this for your plugin and update it as you release new versions.
  */
 define( 'EASY_SCSS_VERSION', '1.0.0' );
+define( 'EASY_SCSS_FOLDER', dirname(__FILE__));
+define( 'EASY_SCSS_FOLDER_URL', plugins_url('', __FILE__));
 
 /**
  * The code that runs during plugin activation.

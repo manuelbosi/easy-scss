@@ -24,4 +24,31 @@ class EasyScssUtils {
 		printf('<div class="%s notice-%s"><p>%s</p></div>', $this->base_notice_class, $type, __($message));
 	}
 
+	/**
+	 * Get filename without esbuild hash
+	 *
+	 * @param string $file
+	 *
+	 * @return string
+	 */
+	public function normalize_filename( string $file ): string {
+		$normalized_filename = array_filter(preg_split('/\.([a-zA-Z0-9])+/', basename($file)))[0];
+		return $normalized_filename;
+	}
+
+	/**
+	 * Get assets build folder path.
+	 *
+	 * Supported scopes are: admin | public
+	 * Supported ext are: css | js
+	 *
+	 * @param string $scope
+	 * @param string $ext
+	 *
+	 * @return array
+	 */
+	public function get_assets_build_files( string $scope, string $ext): array {
+		return glob( EASY_SCSS_FOLDER . '/dist/' . $scope . "/*.[a-zA-Z0-9]*.$ext" );
+	}
+
 }

@@ -5,12 +5,15 @@ namespace EasyScss\Admin;
 use EasyScss\Shared\EasyScssGlobals;
 use EasyScss\Shared\EasyScssOption;
 use EasyScss\Shared\EasyScssOptionsManager;
+use EasyScss\Shared\EasyScssUtils;
 
 class EasyScssAdmin {
 
 	private string $plugin_name;
 	private string $version;
 	private EasyScssOptionsManager $options_manager;
+	private EasyScssUtils $utils;
+	static string $scope = 'admin';
 
 	public function __construct() {
 
@@ -18,24 +21,49 @@ class EasyScssAdmin {
         $this->plugin_name = EasyScssGlobals::$plugin_name;
 
 		$this->options_manager = new EasyScssOptionsManager();
+		$this->utils = new EasyScssUtils();
 
 	}
 
 	/**
 	 * Register the stylesheets for the admin area.
+	 *
+	 * @return void
 	 */
 	public function enqueue_styles(): void {
 
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/easy-scss-admin.css', array(), $this->version);
+		global $plugin_page;
+		if (!$plugin_page) return;
+
+		$cssFilesPath = $this->utils->get_assets_build_files(self::$scope, 'css');
+		if (!empty($cssFilesPath)) {
+			foreach ($cssFilesPath as $cssFile) {
+				$cssFileURI = EASY_SCSS_FOLDER_URL . '/dist/' . self::$scope . '/' . basename($cssFile);
+				$normalized_filename = $this->utils->normalize_filename($cssFile);
+				wp_enqueue_style( $this->plugin_name .  '-admin-' . $normalized_filename, $cssFileURI, array(), $this->version);
+			}
+		}
 
 	}
 
 	/**
 	 * Register the JavaScript for the admin area.
+	 *
+	 * @return void
 	 */
 	public function enqueue_scripts(): void {
 
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/easy-scss-admin.js', array( 'jquery' ), $this->version);
+		global $plugin_page;
+		if (!$plugin_page) return;
+
+		$jsFilesPath = $this->utils->get_assets_build_files(self::$scope, 'js');
+		if (!empty($jsFilesPath)) {
+			foreach ($jsFilesPath as $jsFile) {
+				$jsFileURI = EASY_SCSS_FOLDER_URL . '/dist/' . self::$scope . '/' . basename($jsFile);
+				$normalized_filename = $this->utils->normalize_filename($jsFile);
+				wp_enqueue_script( $this->plugin_name . '-admin-' . $normalized_filename, $jsFileURI, array('jquery'), $this->version, true);
+			}
+		}
 
 	}
 
