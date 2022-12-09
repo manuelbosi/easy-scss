@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "esbuild": "0.16.2",
-    "esbuild-sass-plugin": "2.4.3"
+    "esbuild-sass-plugin": "2.4.3",
+    "monaco-editor": "0.34.1"
   }
 }
